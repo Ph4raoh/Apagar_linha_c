@@ -18,8 +18,9 @@ scanf("%d",&linha_selecionada);
    while(fgets(texto, 55, orig) != NULL){
         if(linha_atual != (linha_selecionada - 1)){
             fputs(texto, saida);
-              linha_atual += 1;
+              
         }
+        linha_atual += 1;
         
         
 }
