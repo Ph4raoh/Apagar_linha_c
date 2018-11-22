@@ -6,7 +6,7 @@ int main()
   FILE *orig,*saida;
 
   int linha_atual = 0, linha_selecionada = 0;
-  char texto[55] = "";
+  char texto[1000] = "";
   
   //abrindo o arquivo
   orig = fopen("original.txt", "r");
@@ -15,7 +15,7 @@ int main()
 scanf("%d",&linha_selecionada);
 
 
-   while(fgets(texto, 55, orig) != NULL){
+   while(fgets(texto, 1000, orig) != NULL){
         if(linha_atual != (linha_selecionada - 1)){
             fputs(texto, saida);
               
@@ -28,6 +28,9 @@ scanf("%d",&linha_selecionada);
   // fechando arquivo
   fclose(orig);
   fclose(saida);
+
+  remove("original.txt");
+  rename("saida.txt", "original.txt");
   
   //mensagem para o usuário
   printf("O arquivo foi criado com sucesso!\n");
